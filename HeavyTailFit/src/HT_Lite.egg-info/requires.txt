@@ -1,6 +1,0 @@
-numpy
-pandas
-six
-time
-scipy
-datetime
