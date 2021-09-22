@@ -2,6 +2,7 @@ LICENSE.txt
 README.md
 setup.cfg
 setup.py
+src/HT_Lite/FunDef_Lite.py
 src/HT_Lite/__init__.py
 src/HT_Lite/example.py
 src/HT_Lite.egg-info/PKG-INFO
