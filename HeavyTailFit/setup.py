@@ -23,7 +23,7 @@ setup(
     description='First try at deployin HT_Code',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    # url='https://github.com/caygen/HeavyTail/tree/main/HeavyTailFit',
+    url='https://github.com/caygen/HeavyTail/tree/main/HeavyTailFit',
     author='Can Aygen, Northwestern University, 2021',  # Optional
     author_email='canaygen@u.northwestern.edu',  # Optional
     # Classifiers help users find your project by categorizing it.
