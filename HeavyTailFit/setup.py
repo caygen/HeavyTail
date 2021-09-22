@@ -15,7 +15,7 @@ long_description = (here / 'README.md').read_text(encoding='utf-8')
 
 setup(
     name='HT_Lite',
-    version='0.0.2',
+    version='0.0.4',
     description='First try at deploying HT_Code',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -88,7 +88,7 @@ setup(
     #
     # For an analysis of "install_requires" vs pip's requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=['numpy', 'pandas','six','matplotlib','time','scipy','datetime','PIL'],  # Optional
+    install_requires=['numpy', 'pandas','six','time','scipy','datetime'],  # Optional
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). Users will be able to install these using the "extras"
