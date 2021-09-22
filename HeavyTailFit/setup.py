@@ -1,8 +1,7 @@
-"""A setuptools based setup module.
+"""
+Copyright c 2021 by Northwestern University. All Rights Reserved.
 
-See:
-https://packaging.python.org/guides/distributing-packages-using-setuptools/
-https://github.com/pypa/sampleproject
+@author: Can Aygen
 """
 
 # Always prefer setuptools over distutils
@@ -14,13 +13,10 @@ here = pathlib.Path(__file__).parent.resolve()
 # Get the long description from the README file
 long_description = (here / 'README.md').read_text(encoding='utf-8')
 
-# Arguments marked as "Required" below must be included for upload to PyPI.
-# Fields marked as "Optional" may be commented out.
-
 setup(
     name='HT_Lite',
     version='0.0.2',
-    description='First try at deployin HT_Code',
+    description='First try at deploying HT_Code',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/caygen/HeavyTail/tree/main/HeavyTailFit',
@@ -92,7 +88,7 @@ setup(
     #
     # For an analysis of "install_requires" vs pip's requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=['numpy', 'pandas'],  # Optional
+    install_requires=['numpy', 'pandas','six','matplotlib','time','scipy','datetime','PIL'],  # Optional
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). Users will be able to install these using the "extras"
