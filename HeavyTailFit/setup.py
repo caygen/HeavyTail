@@ -14,9 +14,9 @@ here = pathlib.Path(__file__).parent.resolve()
 long_description = (here / 'README.md').read_text(encoding='utf-8')
 
 setup(
-    name='HT_Lite',
-    version='0.0.4',
-    description='First try at deploying HT_Code',
+    name='ht_git',
+    version='0.0.1',
+    description='First try at deploying HT Fitting Code',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/caygen/HeavyTail/tree/main/HeavyTailFit',
@@ -88,7 +88,7 @@ setup(
     #
     # For an analysis of "install_requires" vs pip's requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=['numpy', 'pandas','six','time','scipy','datetime'],  # Optional
+    install_requires=['numpy','pandas','six','scipy'],  # Optional
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). Users will be able to install these using the "extras"
