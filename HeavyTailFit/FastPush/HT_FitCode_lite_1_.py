@@ -98,7 +98,7 @@ except:
 #%%############ ############### ############### ############### ###############
 ############### Fitting ###############
 paraName=['u','\\beta','\\bar{f}','m']; plotParaName =['u','T','\\bar{f}','m']
-function = FHTx; print('function: FHTx (4D Solver)')
+function = FHTx; #print('function: FHTx (4D Solver)')
 # function = ADx; print('function: FHTx (4D Solver)')
 # function = F_uThetDf0x; print('function: F_uThetDf0x (3D Solver)')
 
@@ -106,7 +106,7 @@ function = FHTx; print('function: FHTx (4D Solver)')
 if fitMode == 0:
     # constraint = (['m'],['<'],[0.01])
     # constraint = (['m'],['>'],[1-9e-3])
-    mBounds = (0,0.01)
+    mBounds = (0,0.0001)
 elif fitMode == 1:
     # constraint = (['m'],['<'],[6e-4])
     # constraint = (['m'],['>'],[0.99])
@@ -147,35 +147,6 @@ else:
 FdataAv    = OffsetAverage(DataX,DataY)
 FfitAv     = OffsetAverage(DataX,function(DataX,*ret.x))
 offset     = (FdataAv-FfitAv)
-# roundSigFig = 2
-funBounds[-1] = (0,1e-9)
-if compare == 2:
-    ret3 = heavyTailFit(x = DataX3, y = DataY3, fun = function,  pBounds = funBounds, maxiterations=maxiterations)
-#%%
-    compareSig2= Modsigma(DataX,DataY,function,ret3.x)**2
-    sigmaRatio = r' x{:.2f}'.format((compareSig2/ret.fun**2))
-    FdataAv3   = OffsetAverage(DataX3,DataY3)
-    FfitAv3    = OffsetAverage(DataX3,FHTx(DataX3,*ret3.x))
-    offset3    = (FdataAv3-FfitAv3)
-
-#%%
-############### Fast Plotting Fit with Data (no special labels) ###############
-if PlotFitFast:
-    fig, axs = plt.subplots(1, 1, figsize=(3.2, 3.0))
-    xx_lin = np.linspace(DataX[0]-8,DataX[-1]+7,10000)
-
-    axs.scatter(np.exp(DataX), DataY, color = 'black' ,label = 'data' ,marker = 'o',s = 5)  #data is black
-    axs.plot(np.exp(xx_lin), (function(xx_lin,*ret.x))+offset ,'-' ,color = 'blue',label = 'HT fit',lw=1)#our fit is blue
-
-    axs.scatter(np.exp(DataX3), DataY3, color = 'green' ,label = 'data' ,marker = 'o',s = 5)  #data is black
-    axs.plot(np.exp(xx_lin), (function(xx_lin,*ret3.x))+offset3, '--', color = 'red', label = 'June fit', lw = 1)
-
-    axs.set_xlabel(r"$t\ [s]$", **label_style)
-    axs.set_ylabel(r"Quantitiy", **label_style)
-
-    axs.grid(color='k', linestyle='-', linewidth=.05 , which ='both')
-    axs.set_xscale('log')
-############### ############### ############### ############### ###############
 #%%############ ############### ############### ############### ###############
 ############### 'Nice' Plotting ###############
 
@@ -198,7 +169,6 @@ except:
     pass
 
 axs.set_xlabel(r"$t$ [{}]".format(timeunit), **label_style)
-
 
 axs.grid(b = True, linestyle='-', linewidth=0.05 , which ='major')
 # axs.grid(b = True, which='minor', color='r', linestyle='--', axis ='x')
@@ -254,38 +224,6 @@ if save:
 
     im.save(imPath, "png", pnginfo=meta)
 
-#%%Linear time Plot
-if LinearPlot:
-    fig, axs = plt.subplots(1, 1, figsize=(3.2, 3.0))
-    xx_lin = np.linspace(DataX[0]-8,DataX[-1]+3,10000)
-
-    axs.scatter(np.exp(DataX), DataY, color = 'black' ,label = 'data' ,marker = 'o',s = 5)  #data is black
-    axs.plot(np.exp(xx_lin), (FHTx(xx_lin,*ret.x))+offset ,'-' ,color = 'blue',label = 'HT fit',lw=1)#our fit is blue
-
-    # try:
-    #     CfitAv     = OffsetAverage(DataX,FHTx(DataX,*comParams))
-    #     C_offset   = FdataAv-CfitAv
-    #     axs.plot(np.exp(xx_lin), (FHTx(xx_lin,*comParams))+C_offset ,'-' ,color = 'red',label = 'Comp fit',lw=1)#our fit is blue
-    # except:
-    #     pass
-
-    axs.set_xlabel(r"$t$ [{}]".format(timeunit), **label_style)
-    # axs.set_ylabel(r"${}".format(quantity)+"_{" + '{}'.format(bottomLabel) + "}^"+"{}$ {}".format(topLabel,unit), **label_style)
-    axs.set_ylabel(r"${}$".format(quantity) + r"  {}".format(unit), **label_style)
-
-    axs.grid(color='k', linestyle='-', linewidth=0.05 , which ='both')
-    # axs.set_xscale('log')
-    xrange = (-1e7,1e8)
-    try:
-        axs.set_ylim(yrange)
-    except:
-        pass
-
-    try:
-        axs.set_xlim(xrange)
-    except:
-        pass
-    axs.set_xticks([0,.2e8,.4e8,.6e8,.8e8,1e8],minor = False)
 
 #%% Error Estimation and Tabulation
 
@@ -300,7 +238,7 @@ try:
     print('sigma_c^2 = {0:3g}'.format(Modsigma(DataX, DataY, FHTx, comParams)**2))
 except:
     pass
-print("Confidence Intervals Calculated!")
+# print("Confidence Intervals Calculated!")
 #%%
 # #Create The Visual table(s)
 # fig, axs = plt.subplots()

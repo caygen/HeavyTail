@@ -1171,13 +1171,22 @@ def MakeResultsTable(DataX,DataY,function,ret,r,y_unit,title, **kwargs):
     # 
     
     #Console Print Format
-    uConf     ='u    = {0:0.4f} [{1:.4f}, {2:.4f}] '.format(ret.x[0],u_lo,u_hi)
-    tConf     ='tau  = {0:0.4g} [{1:.4g}, {2:.4g}] seconds'.format(np.exp(ret.x[0]),t_lo,t_hi)
-    betaConf  ='beta = {0:0.4g} [{1:.4g}, {2:.4g}] '.format(ret.x[1]               ,b_lo ,b_hi)
-    fdeltConf ='fdelt = {0:0.4g} [{1:.4g}, {2:.4g}] '.format(ret.x[2]               ,f_lo ,f_hi)  + y_unit
-    f0Conf    ='f0   = {0:0.4g} [{1:.4g}, {2:.4g}] '.format(ret.x[2]+offset        ,f0_lo,f0_hi) + y_unit
-    oConf     ='f_inf= {0:0.4g} [{1:.4g}, {2:.4g}] '.format(offset                 ,o_lo ,o_hi)  + y_unit
-    mConf     ='m    = {0:0.5g} [{1:.5g}, {2:.5g}] '.format(m               ,m_lo ,m_hi)
+    # uConf     ='u    = {0:0.4f} [{1:.4f}, {2:.4f}] '.format(       ret.x[0]        ,u_lo,u_hi)
+    # tConf     ='tau  = {0:0.4g} [{1:.4g}, {2:.4g}] seconds'.format(np.exp(ret.x[0]),t_lo,t_hi)
+    # betaConf  ='beta = {0:0.4g} [{1:.4g}, {2:.4g}] '.format(       ret.x[1]        ,b_lo ,b_hi)
+    # fdeltConf ='fdelt = {0:0.4g} [{1:.4g}, {2:.4g}] '.format(      ret.x[2]        ,f_lo ,f_hi)  + y_unit
+    # f0Conf    ='f0   = {0:0.4g} [{1:.4g}, {2:.4g}] '.format(       ret.x[2]+offset ,f0_lo,f0_hi) + y_unit
+    # oConf     ='f_inf= {0:0.4g} [{1:.4g}, {2:.4g}] '.format(       offset          ,o_lo ,o_hi)  + y_unit
+    # mConf     ='m    = {0:0.5g} [{1:.5g}, {2:.5g}] '.format(       m               ,m_lo ,m_hi)
+    # sigmaPrint='sigma_0^2 = {}'.format(sigmaMinSq)
+    
+    uConf     ='u    = {0:0.4f} '.format(       ret.x[0]         ,u_lo,u_hi)
+    tConf     ='tau  = {0:0.4g}  seconds'.format(np.exp(ret.x[0]),t_lo,t_hi)
+    betaConf  ='beta = {0:0.4g} '.format(       ret.x[1]        ,b_lo ,b_hi)
+    fdeltConf ='fdelt= {0:0.4g} '.format(      ret.x[2]         ,f_lo ,f_hi)  + y_unit
+    f0Conf    ='f0   = {0:0.4g} '.format(       ret.x[2]+offset ,f0_lo,f0_hi) + y_unit
+    oConf     ='f_inf= {0:0.4g} '.format(       offset          ,o_lo ,o_hi)  + y_unit
+    mConf     ='m    = {0:0.5g} '.format(       m               ,m_lo ,m_hi)
     sigmaPrint='sigma_0^2 = {}'.format(sigmaMinSq)
 
     #Print Results in the console
@@ -1384,8 +1393,8 @@ def heavyTailFit(x, y, fun, pBounds, maxiterations = 2500, initialTemp = 1000):
     
     # if 'mfix' in kwargs:
     #     mval = kwargs.get('mfix')
-    print('# iter = {}'.format(maxiterations))
-    print('bounds = {}'.format(pBounds))
+    # print('# iter = {}'.format(maxiterations))
+    # print('bounds = {}'.format(pBounds))
     NumParams = np.shape(pBounds)[0]
     p_0 = np.empty([1,NumParams])[0]
     
