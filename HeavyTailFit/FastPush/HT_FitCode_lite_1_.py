@@ -331,11 +331,3 @@ print("Confidence Intervals Calculated!")
 savepath = str(ResultsFolderPath)+'/'+filename[:-4]
 # sys.exit(0)
 # pdb.set_trace()
-
-if PQ_Mode:
-    PlotPicoComparisons(Datat, DataOg, PicoY,
-                        IntPicoFitBack, IntDataPicoBack, IntDataExcelBack,
-                        ret, ret.x[-1], offset, yscale, #m
-                        # ret, offset, yscale, #m
-                        pdfB, logFlatB,
-                        bottomLabel, version + savelabel, savepath, n_init = 0, n_fin = 501)
