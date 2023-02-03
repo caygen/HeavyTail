@@ -1406,7 +1406,7 @@ def heavyTailFit(x, y, fun, pBounds, maxiterations = 2500, initialTemp = 1000):
                            args = (x, y, fun),
                            bounds = (pBounds),
                            maxiter=maxiterations,
-                           accept = accept,
-                           callback=callbackF)
+                           accept = accept)#,
+                           # callback=callbackF)
     
     return ret
