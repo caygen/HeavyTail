@@ -35,7 +35,9 @@ dataOffset = 0;
 topLabel = ' '; bottomLabel = ' ';
 HTDataColor = 'lightcoral'; HTFitColor = 'darkred'
 folder = '.'; timeunit = ' '; unit = ' '
-filename = 'June4b.csv'; 
+
+filename = input('please enter the filename: ')
+# filename = 'June4b.csv'; 
 try:
     del yrange
     del xrange
