@@ -6,6 +6,7 @@ check the following link for a video tutorial for the use of the first version o
 
 
 Steps:
+
 1- Download the repository to the directory of your choice
 
 2- Open a terminal window on a computer with python 3 installed (native terminal on Mac and linux and anaconda terminal on Windows)
