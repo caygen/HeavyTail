@@ -55,7 +55,7 @@ csv  = np.genfromtxt(file, delimiter=",")
 # csv  = np.genfromtxt(file, delimiter=','   , skip_header = 1 + dataOffset)
 # csv  = np.genfromtxt(file, delimiter='\t'   , skip_header = 1 + dataOffset)
 csv = csv[~np.isnan(csv).any(axis=1)] # removes rows containing NaN from the data
-fitMode = float(input('Would you like to fit to a \'Streched-Exponential\' (0) or a \'Power-Law\' decay equation? (1) \nPlease enter 0 or 1: '))
+fitMode = float(input('Would you like to fit to a \'Streched-Exponential\' (1) or a \'Power-Law\' decay equation? (2) \nPlease enter 1 or 2: '))
 print('Analyzing' + file)
 
 DataX = np.log(csv[:,0]*xscale)

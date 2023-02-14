@@ -1208,7 +1208,7 @@ def MakeResultsTable(DataX,DataY,function,ret,r,y_unit,title, **kwargs):
                    ['u'        ,'{0:.{1}g}'.format(ret.x[0],5)],#,u_lo,u_hi],
                    ['beta'     ,'{0:.{1}g}'.format(ret.x[1],5)],#,b_lo,b_hi],
                    ['fdelt'    ,'{0:.{1}g}'.format(ret.x[2],5)],#,f_lo,f_hi],
-                   ['m'        ,'{0:.{1}g}'.format(m       ,5)],#,m_lo,m_hi],
+                   ['m'        ,'{0:.{1}g}'.format(m+1     ,5)],#,m_lo,m_hi],
                    ['sigma'    ,'{0:.2g}'.format(ret.fun)     ],# ,'',''],
                    ['offset'   ,'{0:.5f}'.format(offset)      ]]# ,'','']]
                    ,dtype = 'object')
