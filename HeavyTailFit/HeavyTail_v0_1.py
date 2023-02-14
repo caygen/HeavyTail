@@ -39,7 +39,8 @@ folder = '.'; timeunit = ' '; unit = ' '
 filename = input('please enter the data-file ({data-file}.csv): ')
 file = '{0}/{1}'.format(folder,filename)
 df = pd.read_csv(file)
-HeaderExist = input('do you have a header row in the data? (y/n) ')
+HeaderExist = input('Does your data-file contain column names in the first row? (y/n) ')
+
 if HeaderExist == 'y':
     NameAxes = True
     AxesLabels = df.columns
@@ -99,11 +100,11 @@ if yscale != 1:
     # except:
     #     pass
 #%% Import the fit parameters if there is a previous successful fit for this data with this version of the code
-ResultsFolderPath = pathlib.Path(file[:-4]+'Result{}.csv'.format(savelabel)[:-4])
+ResultsFolderPath = pathlib.Path(file[:-4]+'_FitParams_{}'.format(savelabel)[:-4])
 ResultFolderExist = ResultsFolderPath.is_dir()
 if not ResultFolderExist:
     ResultsFolderPath.mkdir()
-path = pathlib.Path(str(ResultsFolderPath)+'/'+filename[:-4]+'Result{}.csv'.format(savelabel))
+path = pathlib.Path(str(ResultsFolderPath)+'/'+filename[:-4]+'_FitParams_{}'.format(savelabel))
 try:
     FitExists = path.is_file()
 except:
