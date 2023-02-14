@@ -6,7 +6,7 @@ Copyright c 2021 by Northwestern University. All Rights Reserved.
 #%%#Import the Functions
 #Import the Functions
 #********************#
-from HT_Functions_v0_1 import *
+from Functions_v0_1 import *
 #********************#
 SE = 0;
 AD = 1-1e-9;
@@ -16,7 +16,7 @@ AD = 1-1e-9;
 #%%
 #File Import
 #Initialization Constants
-version     = 'Gitv1'
+version     = 'Gitv0_1'
 save        =  True
 interpolateData = False
 savelabel = str(date.today())
@@ -39,7 +39,7 @@ folder = '.'; timeunit = ' '; unit = ' '
 filename = input('please enter the data-file ({data-file}.csv): ')
 file = '{0}/{1}'.format(folder,filename)
 df = pd.read_csv(file)
-HeaderExist = input('do you have a header row in the data? (y/n)')
+HeaderExist = input('do you have a header row in the data? (y/n) ')
 if HeaderExist == 'y':
     NameAxes = True
     AxesLabels = df.columns
@@ -164,8 +164,8 @@ offset     = (FdataAv-FfitAv)
 #%%############ ############### ############### ############### ###############
 ############### 'Nice' Plotting ###############
 
-fig, axs = plt.subplots(1, 1, figsize=(3.2, 3.0))
-xx_lin = np.linspace(DataX[0]-1,DataX[-1]+1,10000)
+fig, axs = plt.subplots(1, 1, figsize=(3.4, 3.0))
+xx_lin = np.linspace(DataX[0]-1,DataX[-1]+2,10000)
 
 tempRet = [-11.1,1,-11.2e-3,0.0]
 # tempRet = ret.x
