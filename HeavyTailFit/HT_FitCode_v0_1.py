@@ -36,7 +36,17 @@ topLabel = ' '; bottomLabel = ' ';
 HTDataColor = 'lightcoral'; HTFitColor = 'darkred'
 folder = '.'; timeunit = ' '; unit = ' '
 
-filename = input('please enter the filename: ')
+filename = input('please enter the data-file ({data-file}.csv): ')
+file = '{0}/{1}'.format(folder,filename)
+df = pd.read_csv(file)
+HeaderExist = input('do you have a header row in the data? (y/n)')
+if HeaderExist == 'y':
+    NameAxes = True
+    AxesLabels = df.columns
+if HeaderExist == 'n':
+    NameAxes = False
+    AxesLabels = ('','')
+csv = df.to_numpy('float')
 # filename = 'June4b.csv'; 
 try:
     del yrange
@@ -45,17 +55,21 @@ except:
     pass
 
 #%%File ImportName
-import pandas as pd
-import copy
-file = '{0}/{1}'.format(folder,filename)
-dataOffset = 0
+# import pandas as pd
+# import copy
+# file = '{0}/{1}'.format(folder,filename)
+# dataOffset = 0
 
 #%%File Import
-csv  = np.genfromtxt(file, delimiter=",")
+# csv_reader = csv.reader(file, delimiter = ',')
+# csv = pd.read_csv(file)
+# Hea
+# csv  = np.genfromtxt(file, delimiter=",")
 # csv  = np.genfromtxt(file, delimiter=','   , skip_header = 1 + dataOffset)
 # csv  = np.genfromtxt(file, delimiter='\t'   , skip_header = 1 + dataOffset)
 csv = csv[~np.isnan(csv).any(axis=1)] # removes rows containing NaN from the data
-fitMode = -1+float(input('Would you like to fit to a \'Streched-Exponential\' (1) or a \'Power-Law\' decay equation? (2) \nPlease enter 1 or 2: '))
+fitMode = -1+float(input('Would you like to fit to a (1) \'Streched-Exponential\' or a (2) \'Power-Law\' decay equation?  \nPlease enter 1 or 2: '))
+
 print('Analyzing' + file)
 
 DataX = np.log(csv[:,0]*xscale)
@@ -110,7 +124,7 @@ if fitMode == 0:
 elif fitMode == 1:
     # constraint = (['m'],['<'],[6e-4])
     # constraint = (['m'],['>'],[0.99])
-    mBounds = (0.99,1)
+    mBounds = (0.995,1)
     
 # 
 # print(function)
@@ -151,7 +165,7 @@ offset     = (FdataAv-FfitAv)
 ############### 'Nice' Plotting ###############
 
 fig, axs = plt.subplots(1, 1, figsize=(3.2, 3.0))
-xx_lin = np.linspace(DataX[0]-2,DataX[-1]+2,10000)
+xx_lin = np.linspace(DataX[0]-1,DataX[-1]+1,10000)
 
 tempRet = [-11.1,1,-11.2e-3,0.0]
 # tempRet = ret.x
@@ -168,7 +182,7 @@ try:
 except:
     pass
 
-axs.set_xlabel(r"$t$ [{}]".format(timeunit), **label_style)
+# axs.set_xlabel(r"$t$ [{}]".format(timeunit), **label_style)
 
 axs.grid(b = True, linestyle='-', linewidth=0.05 , which ='major')
 # axs.grid(b = True, which='minor', color='r', linestyle='--', axis ='x')
@@ -182,6 +196,11 @@ xtickpow = np.linspace(xlimpow[0],xlimpow[1]+1,(int(abs(xlimpow[0]-xlimpow[1]))+
 #Optional Axes Formatiing Settings:
 # axs.set_xlim(1e-3,1e7)
 # yrange = (0, 2e5)
+
+if NameAxes:
+    axs.set_xlabel(AxesLabels[0])
+    axs.set_ylabel(AxesLabels[1])
+    
 try:
     axs.set_ylim(yrange)
 except:
@@ -263,9 +282,9 @@ except:
 # # delta = deltaPar3d(CurvTensor,r,ret.fun**2)
 
 # #Saved Table
-# if save:
-#     np.savetxt(str(ResultsFolderPath)+'/'+filename[:-4]+'Result{}.csv'.format(savelabel), b, delimiter=",",fmt='%s')
-#     # np.savetxt(file[:-4]+'Result{}.csv'.format(savelabel), b, delimiter=",",fmt='%s')
+if save:
+    np.savetxt(str(ResultsFolderPath)+'/'+filename[:-4]+'Result{}.csv'.format(savelabel), b, delimiter=",",fmt='%s')
+    # np.savetxt(file[:-4]+'Result{}.csv'.format(savelabel), b, delimiter=",",fmt='%s')
 #%%Pico
 # m=ret.x[-1]
 savepath = str(ResultsFolderPath)+'/'+filename[:-4]

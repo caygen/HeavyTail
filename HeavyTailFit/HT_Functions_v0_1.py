@@ -585,7 +585,8 @@ def constraintBuilder(param, bound, constraint):
             print('wrong constraint format!')
             sys.exit(1)
     except: 
-        print('no constraint for the parameter ' + param)
+        # print('no constraint for the parameter ' + param)
+        pass
     
     return bound
 
@@ -1181,17 +1182,17 @@ def MakeResultsTable(DataX,DataY,function,ret,r,y_unit,title, **kwargs):
     # sigmaPrint='sigma_0^2 = {}'.format(sigmaMinSq)
     
     uConf     ='u    = {0:0.4f} '.format(       ret.x[0]         ,u_lo,u_hi)
-    tConf     ='tau  = {0:0.4g}  seconds'.format(np.exp(ret.x[0]),t_lo,t_hi)
+    tConf     ='tau  = {0:0.4g} '.format(np.exp(ret.x[0]),t_lo,t_hi)
     betaConf  ='beta = {0:0.4g} '.format(       ret.x[1]        ,b_lo ,b_hi)
     fdeltConf ='fdelt= {0:0.4g} '.format(      ret.x[2]         ,f_lo ,f_hi)  + y_unit
     f0Conf    ='f0   = {0:0.4g} '.format(       ret.x[2]+offset ,f0_lo,f0_hi) + y_unit
     oConf     ='f_inf= {0:0.4g} '.format(       offset          ,o_lo ,o_hi)  + y_unit
-    mConf     ='m    = {0:0.5g} '.format(       m+1             ,m_lo ,m_hi)
+    mConf     ='m    = {0:0.3g} '.format(       m+1             ,m_lo ,m_hi)
     sigmaPrint='sigma_0^2 = {}'.format(sigmaMinSq)
 
     #Print Results in the console
     print('=========================================')
-    print(uConf)
+    # print(uConf)
     print(tConf)
     print(betaConf)
     print(f0Conf)
@@ -1205,10 +1206,11 @@ def MakeResultsTable(DataX,DataY,function,ret,r,y_unit,title, **kwargs):
     plt.tight_layout()
     
     b = np.asarray([['Parameter','Values'                  ],#,'lo','hi'],
-                   ['u'        ,'{0:.{1}g}'.format(ret.x[0],5)],#,u_lo,u_hi],
-                   ['beta'     ,'{0:.{1}g}'.format(ret.x[1],5)],#,b_lo,b_hi],
-                   ['fdelt'    ,'{0:.{1}g}'.format(ret.x[2],5)],#,f_lo,f_hi],
-                   ['m'        ,'{0:.{1}g}'.format(m+1     ,5)],#,m_lo,m_hi],
+                   ['tau'       ,'{0:.{1}g}'.format(np.exp(ret.x[0]),3)],#,u_lo,u_hi],
+                #    ['u'        ,'{0:.{1}g}'.format(ret.x[0],3)],#,u_lo,u_hi],
+                   ['beta'     ,'{0:.{1}g}'.format(ret.x[1],3)],#,b_lo,b_hi],
+                   ['fdelt'    ,'{0:.{1}g}'.format(ret.x[2],3)],#,f_lo,f_hi],
+                   ['m'        ,'{0:.{1}g}'.format(m+1     ,3)],#,m_lo,m_hi],
                    ['sigma'    ,'{0:.2g}'.format(ret.fun)     ],# ,'',''],
                    ['offset'   ,'{0:.5f}'.format(offset)      ]]# ,'','']]
                    ,dtype = 'object')
@@ -1401,7 +1403,7 @@ def heavyTailFit(x, y, fun, pBounds, maxiterations = 2500, initialTemp = 1000):
     #Create a random initial condition within boundaries
     for ii in np.arange(1,NumParams):
         Bound = np.array(pBounds[ii])
-        TenPower = 2 - np.int(np.floor(np.log10(Bound[1])))
+        TenPower = 3 - int(np.floor(np.log10(Bound[1])))
         Bound = np.round(Bound *10**TenPower)
         p_0[ii] = float(random.randrange(Bound[0], Bound[1], 1)/10**TenPower)
         
