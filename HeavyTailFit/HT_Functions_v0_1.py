@@ -1186,7 +1186,7 @@ def MakeResultsTable(DataX,DataY,function,ret,r,y_unit,title, **kwargs):
     fdeltConf ='fdelt= {0:0.4g} '.format(      ret.x[2]         ,f_lo ,f_hi)  + y_unit
     f0Conf    ='f0   = {0:0.4g} '.format(       ret.x[2]+offset ,f0_lo,f0_hi) + y_unit
     oConf     ='f_inf= {0:0.4g} '.format(       offset          ,o_lo ,o_hi)  + y_unit
-    mConf     ='m    = {0:0.5g} '.format(       m               ,m_lo ,m_hi)
+    mConf     ='m    = {0:0.5g} '.format(       m+1             ,m_lo ,m_hi)
     sigmaPrint='sigma_0^2 = {}'.format(sigmaMinSq)
 
     #Print Results in the console
