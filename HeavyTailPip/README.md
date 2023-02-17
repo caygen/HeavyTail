@@ -7,7 +7,10 @@ pip install HeavyTail
 To use the package import it at the begging of your code
 ```
 import HeavyTail
-#or if you don't want to keep writing "HeavyTail" over and over again you can shorten it by replacing "HeavyTail" by "ht"
+```
+
+# or if you don't want to keep writing "HeavyTail" over and over again you can shorten it by replacing "HeavyTail" by "ht" after including the following line
+```
 import HeavyTail as ht
 ```
 
