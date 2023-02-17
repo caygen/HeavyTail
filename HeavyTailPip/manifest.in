@@ -1,0 +1,2 @@
+include src/*.py
+inlcude src/*.csv

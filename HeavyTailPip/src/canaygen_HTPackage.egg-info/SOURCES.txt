@@ -1,0 +1,9 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+src/canaygen_HTPackage.egg-info/PKG-INFO
+src/canaygen_HTPackage.egg-info/SOURCES.txt
+src/canaygen_HTPackage.egg-info/dependency_links.txt
+src/canaygen_HTPackage.egg-info/top_level.txt
