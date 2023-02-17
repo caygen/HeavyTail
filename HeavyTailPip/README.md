@@ -4,7 +4,7 @@ On your terminal page execute to download and install the pakage on your compute
 pip install HeavyTail
 ```
 
-To use the package import it at the begging of your code
+To use the package include it in your python script by importing it at the begging of your code:
 ```
 import HeavyTail
 ```
