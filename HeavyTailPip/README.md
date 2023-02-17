@@ -1,8 +1,8 @@
 # HeavyTail Fitting Code Packaged Version
   use the package folloiwing the example
-'''python
+
   from HeavyTailPip import HeavyTail
-'''
+
 On your terminal page execute to download and setup the pakage:
 Pip install HeavyTail
 
@@ -17,3 +17,10 @@ ht.Fit(filename) #queries if you want the m=1 (SE) or m=2 (AD) fit
 ht.FitSE(filename)
 ht.FitAD(filename)
 Ht.FitFree(filename)
+
+
+```
+var add2 = function(number) {
+  return number + 2;
+}
+```
