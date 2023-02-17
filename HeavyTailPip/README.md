@@ -9,7 +9,7 @@ To use the package include it in your python script by importing it at the beggi
 import HeavyTail
 ```
 
-# or if you don't want to keep writing "HeavyTail" over and over again you can shorten it by replacing "HeavyTail" by "ht" after including the following line
+or if you don't want to keep writing "HeavyTail" over and over again you can shorten it by replacing "HeavyTail" by "ht" after including the following line
 ```
 import HeavyTail as ht
 ```
