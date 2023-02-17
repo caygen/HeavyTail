@@ -100,11 +100,11 @@ if yscale != 1:
     # except:
     #     pass
 #%% Import the fit parameters if there is a previous successful fit for this data with this version of the code
-ResultsFolderPath = pathlib.Path(file[:-4]+'_FitParams_{}'.format(savelabel)[:-4])
+ResultsFolderPath = pathlib.Path(file[:-4]+'_{}'.format(savelabel)[:-4])
 ResultFolderExist = ResultsFolderPath.is_dir()
 if not ResultFolderExist:
     ResultsFolderPath.mkdir()
-path = pathlib.Path(str(ResultsFolderPath)+'/'+filename[:-4]+'_FitParams_{}'.format(savelabel))
+path = pathlib.Path(str(ResultsFolderPath)+'/'+filename[:-4]+'_{}'.format(savelabel))
 try:
     FitExists = path.is_file()
 except:
