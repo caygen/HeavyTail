@@ -17,8 +17,8 @@ import HeavyTail as ht #run this at the beginning of your code
 ## Analysis
 only need to choose one of the below options
 ```
-ht.Fit(filename) #queries if you want the m=1 (SE) or m=2 (AD) fit
-ht.FitSE(filename)
-ht.FitAD(filename)
+ht.Fit(filename)     #queries if you want the m=1 (SE) or m=2 (AD) fit
+ht.FitSE(filename)   #fits the input file to the m = 1 (stretched exponential relaxation) - unimolecular relaxation
+ht.FitAD(filename)   #fits the inpit file to the m = 2 (algebraic decay relaxation)       - bimolecular relaxation
 Ht.FitFree(filename)
 ```
