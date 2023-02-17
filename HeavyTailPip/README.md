@@ -23,3 +23,8 @@ ht.FitAD(filename)   #fits the inpit file to the m = 2 (algebraic decay relaxati
 ht.FitFree(filename) #fits to the heavy tail equation using the default (forgiving) constraints
 ht.FitBiExp(filename, numExp) #fits the input file to a specified number of sum of exponentials
 ```
+Any time of these functions are run the following will happen:
+* the results of the fit will be displayed on the default terminal window
+* a csv file with the results printed on the terminal will be saved on the current working directory
+* a graph of the scattered raw data overlayed with the fit line will be saved to the current working directory
+
