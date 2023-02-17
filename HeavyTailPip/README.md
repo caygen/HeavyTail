@@ -1,8 +1,8 @@
 # HeavyTail Fitting Code Packaged Version
   use the package folloiwing the example
-
+'''python
   from HeavyTailPip import HeavyTail
-
+'''
 On your terminal page execute to download and setup the pakage:
 Pip install HeavyTail
 
