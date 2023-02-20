@@ -1,5 +1,5 @@
 from setuptools import setup
-wtih open("README.MD", "r") as fh:
+with open("README.MD", "r") as fh:
     long_description = fh.read()
 setup(
     name = 'HeavyTail',
@@ -21,5 +21,11 @@ setup(
     long_description = long_description,
     long_description_content_type = "text/markdown",
 
+    install_requires = [
+        'numpy',
+        'matpltlib',
+        'pandas',
+        'numdifftools'
+    ]
     
 )
