@@ -25,7 +25,7 @@ setup(
         'numpy',
         'matpltlib',
         'pandas',
-        'numdifftools'
-    ]
+        'numdifftools',
+    ],
     
 )
