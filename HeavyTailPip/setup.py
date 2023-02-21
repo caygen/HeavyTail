@@ -27,5 +27,6 @@ setup(
         'pandas',
         'numdifftools',
     ],
+    #test VSStudio Code Git integration
     
 )
