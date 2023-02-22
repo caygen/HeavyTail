@@ -100,7 +100,12 @@ if yscale != 1:
     # except:
     #     pass
 #%% Import the fit parameters if there is a previous successful fit for this data with this version of the code
-ResultsFolderPath = pathlib.Path(file[:-4]+'_{}'.format(savelabel)[:-4])
+path_i = 0
+ResultsFolderPath = pathlib.Path(file[:-4]+'_{}_{}'.format(savelabel,path_i))
+while os.path.exists(ResultsFolderPath):
+    path_i += 1
+    ResultsFolderPath = pathlib.Path(file[:-4]+'_{}_{}'.format(savelabel,path_i))
+# ResultsFolderPath = pathlib.Path(file[:-4]+'_{}_{}'.format(savelabel,path_i)[:-4])
 ResultFolderExist = ResultsFolderPath.is_dir()
 if not ResultFolderExist:
     ResultsFolderPath.mkdir()
