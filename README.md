@@ -1,4 +1,4 @@
-# HeavyTail
+# HeavyTail (beta)
 
 Heavytail relaxation or excitation behaviour occur all the time in the nature but for far too long people have been fitting experimental data to multiexponentials. 
 
