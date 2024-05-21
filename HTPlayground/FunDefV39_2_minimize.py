@@ -1479,10 +1479,10 @@ def callbackF(x, f, context):
 from scipy.optimize import minimize
 
 def heavyTailFit(x, y, fun, pBounds, maxiterations=1e7, initialTemp=1000, jj=0, **kwargs):
+    # Create a random initial condition within boundaries
     NumParams = len(pBounds)
     p_0 = np.empty(NumParams)
-
-    # Create a random initial condition within boundaries
+    
     for ii in range(NumParams):
         Bound = np.array(pBounds[ii])
         TenPower = 2 - int(np.floor(np.log10(Bound[1])))
@@ -1490,12 +1490,13 @@ def heavyTailFit(x, y, fun, pBounds, maxiterations=1e7, initialTemp=1000, jj=0, 
         p_0[ii] = float(random.randrange(Bound[0], Bound[1], 1) / 10 ** TenPower)
 
     p_0[0] = (pBounds[0][0] + pBounds[0][1]) / 2
-    if jj > 1:
-        p_0 = p0In
+    if 'p0' in kwargs:
+        p_0 = kwargs['p0']
 
     # Define the loss function
     def loss_function(params):
-        return np.sum((fun(x, *params) - y) ** 2)
+        dataFit = fun(x, *params)
+        return PQ_chiSquared(x, dataFit, y)
 
     # Optimization using Nelder-Mead method
     ret = minimize(loss_function, x0=p_0, method='Nelder-Mead', options={'maxiter': maxiterations})
