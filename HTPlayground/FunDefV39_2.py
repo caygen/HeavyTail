@@ -466,7 +466,7 @@ def BiexpFun2(t, tau1, A, tau2, B):
 #%% Biexponential function fixed baxkgrund
 def BiexpFunFixB(t, T1, A1, T2, A2):#, B = 666):
     
-    ret = A1*np.exp(-t/T1) + A2*np.exp(-t/T2) + 2.4
+    ret = A1*np.exp(-t/T1) + A2*np.exp(-t/T2) + 0.0
     
     return ret
 
@@ -1461,7 +1461,8 @@ def heavyTailFit(x, y, fun, pBounds, maxiterations = 1e7, initialTemp = 1000, jj
     # jj = 1
     # while cost >= 10:
         # print("jj: " +str(jj))
-    ret = dual_annealing(residulaChiSq, 
+    # ret = dual_annealing(residulaChiSq,
+    ret = dual_annealing(residualModSig, 
                           x0 = p_0,
                            initial_temp = initialTemp,
                            args = (x, y, fun),

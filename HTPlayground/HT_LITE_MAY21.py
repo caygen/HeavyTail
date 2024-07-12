@@ -58,6 +58,8 @@ def BiexpFunFixBLogA(t, T1, A1, T2, A2):
 def BiexpFunLog10Data(t, T1, A1, T2, A2):
     return A1 * (-(t) / (T1)) * A2 * (-(t) / (T2)) + 2.4
 
+
+
 #%% Choose which function to fit to
 function = BiexpFunFixB
 
