@@ -123,6 +123,7 @@ plt.show()
 # function = BiexpFunFixB
 function = FHTx
 
+
 beoundRelax = 0.1
 TBounds = (DataX[0], DataX[-1])
 ABounds = (min(DataY) * (1 - beoundRelax), max(DataY) * (1 + beoundRelax))
@@ -163,7 +164,7 @@ fig, axs = plt.subplots(1, 1, figsize=(3.2, 3.0))
 xx_lin = np.linspace(0, DataX[-1], 1000)
 
 axs.scatter(DataX, DataYIntegraded/1e6, color='black', label='data', marker='o', s=5)
-axs.plot(DataX, function(DataX, *Mcomp), color='orange')
+# axs.plot(DataX, function(DataX, *Mcomp), color='orange')
 axs.plot(DataX, function(DataX, *ret.x))
 
 axs.set_xlabel(r"$t\ [ns]$")
