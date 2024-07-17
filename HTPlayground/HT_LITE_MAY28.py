@@ -156,7 +156,7 @@ print(f"SA cost: {cost}")
 
 PQ_cost = ChiSquaredCost(DataX, DataYIntegraded, function, Mcomp)
 print(f"PQ cost: {PQ_cost}")
-
+#%%
 ##
 # Plot the results
 fig, axs = plt.subplots(1, 1, figsize=(3.2, 3.0))
